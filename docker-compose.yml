@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  llama-cpp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./model:/opt/llama.cpp/models
+      - ./query_llama.py:/opt/llama.cpp/query_llama.py
+    command: ["python3", "/opt/llama.cpp/query_llama.py"]
